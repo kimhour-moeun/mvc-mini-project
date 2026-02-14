@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 public class EmployeeController {
-    private int pageSize = 5;   // default page size
+    private int pageSize = 5;
     private int currentPage = 1;
     Scanner scanner = new Scanner(System.in);
     private final EmployeeView view;
@@ -45,7 +45,7 @@ public class EmployeeController {
         List<EmployeeResponse> employeeList =
                 service.getAllEmployee(offset, pageSize);
         view.displayEmployeeTable(employeeList);
-        System.out.println("==>>>Page " + currentPage + " of " + totalPages + "<<<===");
+        System.out.println("===Page " + currentPage + " of " + totalPages + "===");
     }
 
 
@@ -81,7 +81,7 @@ public class EmployeeController {
             currentPage = page;
             displayEmployees();
         } else {
-            System.out.println(">>>Page must be between 1 and " + totalPages);
+            System.out.println("===Page must be between 1 and " + totalPages);
         }
     }
 
@@ -92,9 +92,9 @@ public class EmployeeController {
         Long id = deleteDto.id();
         Boolean response = service.deleteById(id);
         if (response) {
-            System.out.println(">>>> Employee with ID " + id + " has been deleted successfully.<<<<");
+            System.out.println("=== Employee with ID " + id + " has been deleted successfully.===");
         } else {
-            System.out.println(">>>> Employee with ID " + id + " was not found.<<<<");
+            System.out.println("=== Employee with ID " + id + " was not found.===");
         }
     }
 
